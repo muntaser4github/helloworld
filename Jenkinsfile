@@ -1,14 +1,14 @@
 pipeline {
   agent any
-  stages {
-    stage('Checkout') {
+ 
+    stage('Build') {
       steps {
-        git(url: 'https://github.com/devopsdeepdive/blueocean-test-repo.git', branch: 'master', credentialsId: 'github-user')
+        echo 'Building'
       }
     }
-    stage('Package') {
+   stage('Test') {
       steps {
-        sh 'mvn package'
+        echo 'Testing'
       }
     }
  stage('Deploy') {
@@ -16,6 +16,4 @@ pipeline {
         echo 'Deployeing'
 }
       }
-    }
-  }
 }
